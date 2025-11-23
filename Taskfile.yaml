@@ -1,6 +1,7 @@
 version: "3"
 
 vars:
+  CC_FLAGS: -std=c23 -Wall -Wextra -Wpedantic
   BUILD_DIR: bin
   EXECUTABLE: ngc
 
@@ -14,7 +15,7 @@ tasks:
   build:
     cmds:
       - test -d {{.BUILD_DIR}} || mkdir {{.BUILD_DIR}}
-      - gcc -Wall -o {{.BUILD_DIR}}/{{.EXECUTABLE}} src/main.c
+      - gcc {{.CC_FLAGS}} -o {{.BUILD_DIR}}/{{.EXECUTABLE}} src/main.c
 
   execute:
     deps:
