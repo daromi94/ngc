@@ -17,7 +17,7 @@ tasks:
       - test -d {{.BUILD_DIR}} || mkdir {{.BUILD_DIR}}
       - gcc {{.CC_FLAGS}} -o {{.BUILD_DIR}}/{{.EXECUTABLE}} src/main.c
 
-  execute:
+  run:
     deps:
       - build
     cmd: ./{{.BUILD_DIR}}/{{.EXECUTABLE}}
